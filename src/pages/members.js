@@ -3,8 +3,8 @@ import React from "react";
 export default ({data}) => (
   <div>
     <h1>Members Page</h1>
-    {data.allFile.edges.map(({ node }, index) =>
-        <h1 key={index}>{node.relativePath}</h1>
+    {data.allMarkdownRemark.edges.map(({ node }, index) =>
+        <p key={index}>{node.frontmatter.name}</p>
     )}
 
   </div>
@@ -12,10 +12,17 @@ export default ({data}) => (
 
 export const query = graphql`
   query MemberQuery {
-    allFile {
+    allMarkdownRemark {
       edges {
         node {
-          relativePath 
+          frontmatter {
+            name
+            title
+            photoURL
+            twitter
+            linkedin
+            website
+          }
         }
       }
     }

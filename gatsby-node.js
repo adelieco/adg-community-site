@@ -4,11 +4,16 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
- // You can delete this file if you're not using it
+// You can delete this file if you're not using it
 
 // Source members/kevin
 
-const path = require(`path`);
+// const path = require(`path`);
+// exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
+//   if (node.internal.type === `File` && node.relativePath.includes('members/')) {
+//   }
+// };
+
 // const { createFilePath } = require(`gatsby-source-filesystem`);
 
 // exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
