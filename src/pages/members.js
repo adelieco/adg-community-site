@@ -1,8 +1,8 @@
 import React from "react";
 
-export default () => (
+export default ({data}) => (
   <div>
-    <h1>Biographies Page</h1>
+    <h1>Members Page</h1>
     {data.allFile.edges.map(({ node }, index) =>
         <h1 key={index}>{node.relativePath}</h1>
     )}
