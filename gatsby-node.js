@@ -6,9 +6,9 @@
 
  // You can delete this file if you're not using it
 
-// For every member, 
+// Source members/kevin
 
-// const path = require(`path`);
+const path = require(`path`);
 // const { createFilePath } = require(`gatsby-source-filesystem`);
 
 // exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {

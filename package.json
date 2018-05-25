@@ -20,6 +20,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "gatsby-plugin-glamor": "^1.6.13",
+    "gatsby-source-filesystem": "^1.5.36",
     "prettier": "^1.12.0"
   }
 }
