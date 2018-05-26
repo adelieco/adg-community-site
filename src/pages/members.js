@@ -1,12 +1,30 @@
 import React from "react";
 import path from 'path';
 
+// Alias styles object to 's' for cleanliness
+const s = {
+  container: {
+    display: 'flex',
+  },
+  memberCard: {
+    display: 'flex',
+    flexFlow: 'column nowrap',
+    flex: '0 0 30%',
+    margin: 'auto',
+  },
+  name: {
+    fontSize: '24px',
+    fontWeight: 'bold',
+    marginBottom: '10px',
+  }
+};
+
 export default ({data}) => (
   <div>
     <h1>Members Page</h1>
-    <div className="members-wrapper">
+    <div style={s.container}>
     {data.allMarkdownRemark.edges.map(({ node }, index) =>
-      <div key={index} className="MemberCard">
+      <div key={index} style={s.memberCard}>
         <img 
           src={
             data.allFile.edges
@@ -14,7 +32,7 @@ export default ({data}) => (
             .node.publicURL
           }
           alt={node.frontmatter.name}/>
-        <span key={index}>{node.frontmatter.name}</span>
+        <span style={s.name} key={index}>{node.frontmatter.name}</span>
         <p dangerouslySetInnerHTML={{ __html: node.html}}></p>
       </div>
     )}
