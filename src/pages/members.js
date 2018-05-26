@@ -5,12 +5,22 @@ import path from 'path';
 const s = {
   container: {
     display: 'flex',
+    flexFlow: 'row wrap',
   },
   memberCard: {
     display: 'flex',
     flexFlow: 'column nowrap',
     flex: '0 0 30%',
-    margin: 'auto',
+    margin: '10% auto',
+    border: '1px solid gray',
+    padding: '15px',
+  },
+  photo: {
+    borderRadius: '100%',
+    maxHeight: '120px',
+    maxWidth: '120px',
+    marginBottom: '20px',
+    alignSelf: 'center',
   },
   name: {
     fontSize: '24px',
@@ -24,8 +34,11 @@ export default ({data}) => (
     <h1>Members Page</h1>
     <div style={s.container}>
     {data.allMarkdownRemark.edges.map(({ node }, index) =>
+
+      // MemberCard
       <div key={index} style={s.memberCard}>
         <img 
+          style={s.photo}
           src={
             data.allFile.edges
             .find( edge =>  node.frontmatter.photoURL === `${edge.node.name}.jpg` ) 
@@ -35,6 +48,8 @@ export default ({data}) => (
         <span style={s.name} key={index}>{node.frontmatter.name}</span>
         <p dangerouslySetInnerHTML={{ __html: node.html}}></p>
       </div>
+
+      // End of MemberCard
     )}
     </div>
   </div>
