@@ -8,12 +8,19 @@ export default ({data}) => (
     {data.allMarkdownRemark.edges.map(({ node }, index) =>
       <div key={index} className="MemberCard">
         <p key={index}>{node.frontmatter.name}</p>
-        <img src={data.allFile.edges[0].node.publicURL} alt=""/>
+        <img 
+          src={
+            data.allFile.edges
+            .find( edge =>  node.frontmatter.photoURL === `${edge.node.name}.jpg` ) 
+            .node.publicURL
+          }
+          alt={node.frontmatter.name}/>
       </div>
     )}
     </div>
   </div>
 );
+
 
 export const query = graphql`
   query MemberQuery {
@@ -34,6 +41,7 @@ export const query = graphql`
     allFile(filter: {extension: { eq: "jpg" } }) {
       edges {
         node {
+          name
           publicURL
         }
       }
