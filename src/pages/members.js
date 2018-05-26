@@ -7,7 +7,6 @@ export default ({data}) => (
     <div className="members-wrapper">
     {data.allMarkdownRemark.edges.map(({ node }, index) =>
       <div key={index} className="MemberCard">
-        <p key={index}>{node.frontmatter.name}</p>
         <img 
           src={
             data.allFile.edges
@@ -15,6 +14,8 @@ export default ({data}) => (
             .node.publicURL
           }
           alt={node.frontmatter.name}/>
+        <span key={index}>{node.frontmatter.name}</span>
+        <p dangerouslySetInnerHTML={{ __html: node.html}}></p>
       </div>
     )}
     </div>
@@ -27,6 +28,7 @@ export const query = graphql`
     allMarkdownRemark {
       edges {
         node {
+          html
           frontmatter {
             name
             title
