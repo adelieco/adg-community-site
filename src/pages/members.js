@@ -6,6 +6,7 @@ const s = {
   container: {
     display: 'flex',
     flexFlow: 'row wrap',
+    width: '100%',
   },
   memberCard: {
     display: 'flex',
@@ -14,6 +15,7 @@ const s = {
     margin: '10% auto',
     border: '1px solid gray',
     padding: '15px',
+    borderRadius: '3px',
   },
   photo: {
     borderRadius: '100%',
@@ -31,7 +33,6 @@ const s = {
 
 export default ({data}) => (
   <div>
-    <h1>Members Page</h1>
     <div style={s.container}>
     {data.allMarkdownRemark.edges.map(({ node }, index) =>
 

@@ -1,6 +1,20 @@
 import React from "react";
 import Link from "gatsby-link";
 
+const s = {
+  logo: {
+    textDecoration: 'none',
+    fontVariant: 'small-caps',
+  },
+  header: {
+    display: 'flex',
+    flexFlow: 'row nowrap',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
+  }
+}
+
 const ListLink = props =>
   <li style={{ display: `inline-block`, marginRight: `1rem` }}>
     <Link to={props.to}>
@@ -9,9 +23,9 @@ const ListLink = props =>
   </li>
 
 export default ({ children }) =>
-  <header style={{ marginBottom: `1.5rem` }}>
-    <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
-      <h3 style={{ display: `inline` }}>Adelie Community Site</h3>
+  <header style={s.header}>
+    <Link to="/" style={s.logo}>
+      <h3 style={{ display: `inline` }}>ADELIEid</h3>
     </Link>
     <ul style={{ listStyle: `none`, float: `right` }}>
       <ListLink to="/">Home</ListLink>
