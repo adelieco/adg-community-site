@@ -31,7 +31,8 @@ const s = {
   }
 };
 
-export default ({data}) => (
+export default ({data}) => {
+  return (
   <div>
     <div style={s.container}>
     {data.allMarkdownRemark.edges.map(({ node }, index) =>
@@ -48,13 +49,23 @@ export default ({data}) => (
           alt={node.frontmatter.name}/>
         <span style={s.name} key={index}>{node.frontmatter.name}</span>
         <p dangerouslySetInnerHTML={{ __html: node.html}}></p>
+
+        <ul>
+          {node.frontmatter.socials.map((social, index) => 
+            <li key={index}>
+              <a href={`https://twitter.com/${social.twitter}`}>{social.twitter}</a>
+              <a href={`https://linkedin.com/in/${social.linkedin}`}>{social.linkedin}</a>
+            </li>
+          )}
+        </ul>
       </div>
 
       // End of MemberCard
     )}
     </div>
   </div>
-);
+)
+};
 
 
 export const query = graphql`
@@ -67,9 +78,11 @@ export const query = graphql`
             name
             title
             photoURL
-            twitter
-            linkedin
             website
+            socials {
+              twitter
+              linkedin
+            }
           }
         }
       }
