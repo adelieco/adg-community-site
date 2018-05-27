@@ -53,7 +53,7 @@ export default ({data}) => {
         <ul>
           {node.frontmatter.socials.map((social, index) => 
             <li key={index}>
-              <a href={`https://twitter.com/${social.twitter}`}>{social.twitter}</a>
+              <a href={`https://twitter.com/${social.twitter}`}></a>
               <a href={`https://linkedin.com/in/${social.linkedin}`}>{social.linkedin}</a>
             </li>
           )}
@@ -91,6 +91,22 @@ export const query = graphql`
       edges {
         node {
           name
+          publicURL
+        }
+      }
+    }
+    allFile(filter: {
+      OR: [
+        extension: {eq: "png"}, 
+        extension: {eq: "jpg"}, 
+      ],
+      OR: [
+        name: {eq: "linkedin"},
+        name: {eq: "twitter"},
+      ]
+    }) {
+      edges {
+        node {
           publicURL
         }
       }
