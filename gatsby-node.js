@@ -58,3 +58,13 @@
 //     })
 //   })
 // };
+
+
+exports.modifyWebpackConfig = function(config, env) {
+  config.merge({
+    alias: {
+      '@': path.resolve(__dirname, './src/'),
+    }
+  });
+  return config;
+}

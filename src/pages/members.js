@@ -1,5 +1,7 @@
 import React from "react";
 import path from 'path';
+import LinkedInIcon from '@/src/assets/img/linkedin-icon.png';
+import TwitterIcon from '@/src/assets/img/twitter-icon.png';
 
 // Alias styles object to 's' for cleanliness
 const s = {
@@ -51,12 +53,10 @@ export default ({data}) => {
         <p dangerouslySetInnerHTML={{ __html: node.html}}></p>
 
         <ul>
-          {node.frontmatter.socials.map((social, index) => 
-            <li key={index}>
-              <a href={`https://twitter.com/${social.twitter}`}></a>
-              <a href={`https://linkedin.com/in/${social.linkedin}`}>{social.linkedin}</a>
-            </li>
-          )}
+          <li>
+            <a href={`https://twitter.com/${node.frontmatter.socials.twitter}`}>{LinkedInIcon}</a>
+            <a href={`https://linkedin.com/in/${node.frontmatter.socials.linkedin}`}>{TwitterIcon}</a>
+          </li>
         </ul>
       </div>
 
@@ -91,22 +91,6 @@ export const query = graphql`
       edges {
         node {
           name
-          publicURL
-        }
-      }
-    }
-    allFile(filter: {
-      OR: [
-        extension: {eq: "png"}, 
-        extension: {eq: "jpg"}, 
-      ],
-      OR: [
-        name: {eq: "linkedin"},
-        name: {eq: "twitter"},
-      ]
-    }) {
-      edges {
-        node {
           publicURL
         }
       }
