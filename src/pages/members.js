@@ -1,7 +1,7 @@
 import React from "react";
 import path from 'path';
-import LinkedInIcon from '@/src/assets/img/linkedin-icon.png';
-import TwitterIcon from '@/src/assets/img/twitter-icon.png';
+import LinkedInIcon from 'assets/img/linkedin-icon.png';
+import TwitterIcon from 'assets/img/twitter-icon.png';
 
 // Alias styles object to 's' for cleanliness
 const s = {
