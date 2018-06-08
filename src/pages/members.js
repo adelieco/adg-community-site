@@ -11,7 +11,7 @@ const s = {
   },
 };
 
-export default ({data}) => {
+function prepareMembers(data) {
   let markdownData = Object.assign({}, data.allMarkdownRemark)
   let members = [];
 
@@ -27,8 +27,13 @@ export default ({data}) => {
       }
     })
   })
+ return members; 
+}
 
-  // console.log(members)
+export default ({data}) => {
+
+  // Consolidates graphQL data
+  let members = prepareMembers(data);
 
   return (
     <div>
