@@ -1,6 +1,4 @@
 import React from "react";
-import LinkedInIcon from 'assets/img/linkedin-icon.png';
-import TwitterIcon from 'assets/img/twitter-icon.png';
 import MemberCard from 'components/member-card.js';
 import { hyphenateSpaces } from 'utils.js';
 

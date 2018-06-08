@@ -10,7 +10,7 @@ export default (props) => {
     <div style={s.memberCard}>
       <img 
         style={s.photo}
-        src={props.member.frontmatter.photoURL}
+        src={props.member.photoURL}
         alt={props.member.frontmatter.name}/>
       <span style={s.name}>{props.member.frontmatter.name}</span>
       <p dangerouslySetInnerHTML={{ __html: props.member.html}}></p>
