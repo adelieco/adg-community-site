@@ -1,7 +1,8 @@
 import React from "react";
-import path from 'path';
 import LinkedInIcon from 'assets/img/linkedin-icon.png';
 import TwitterIcon from 'assets/img/twitter-icon.png';
+import MemberCard from 'components/member-card.js';
+import { hyphenateSpaces } from 'utils.js';
 
 // Alias styles object to 's' for cleanliness
 const s = {
@@ -10,61 +11,41 @@ const s = {
     flexFlow: 'row wrap',
     width: '100%',
   },
-  memberCard: {
-    display: 'flex',
-    flexFlow: 'column nowrap',
-    flex: '0 0 30%',
-    margin: '10% auto',
-    border: '1px solid gray',
-    padding: '15px',
-    borderRadius: '3px',
-  },
-  photo: {
-    borderRadius: '100%',
-    maxHeight: '120px',
-    maxWidth: '120px',
-    marginBottom: '20px',
-    alignSelf: 'center',
-  },
-  name: {
-    fontSize: '24px',
-    fontWeight: 'bold',
-    marginBottom: '10px',
-  }
 };
 
 export default ({data}) => {
+  let markdownData = Object.assign({}, data.allMarkdownRemark)
+  let members = [];
+
+  // Consolidate graphql response into single, readable members
+  markdownData.edges.map( (member, index) => {
+    // Alias member to "member.node" because it's fucking long
+    member = member.node;
+    let username = hyphenateSpaces(member.frontmatter.name.toLowerCase())
+    data.allFile.edges.forEach( fileNode => {
+      if(username === fileNode.node.name) {
+        let newMember = Object.assign(member, {photoURL: fileNode.node.publicURL})
+        members.push(newMember);
+      }
+    })
+  })
+
+  // console.log(members)
+
   return (
-  <div>
-    <div style={s.container}>
-    {data.allMarkdownRemark.edges.map(({ node }, index) =>
+    <div>
+      <div style={s.container}>
+        {members.map( (member, index) =>
 
-      // MemberCard
-      <div key={index} style={s.memberCard}>
-        <img 
-          style={s.photo}
-          src={
-            data.allFile.edges
-            .find( edge =>  node.frontmatter.photoURL === `${edge.node.name}.jpg` ) 
-            .node.publicURL
-          }
-          alt={node.frontmatter.name}/>
-        <span style={s.name} key={index}>{node.frontmatter.name}</span>
-        <p dangerouslySetInnerHTML={{ __html: node.html}}></p>
+          <MemberCard
+            key={index}
+            member={member}
+          />
 
-        <ul>
-          <li>
-            <a href={`https://twitter.com/${node.frontmatter.socials.twitter}`}>{LinkedInIcon}</a>
-            <a href={`https://linkedin.com/in/${node.frontmatter.socials.linkedin}`}>{TwitterIcon}</a>
-          </li>
-        </ul>
+        )}
       </div>
-
-      // End of MemberCard
-    )}
     </div>
-  </div>
-)
+  )
 };
 
 
@@ -77,7 +58,6 @@ export const query = graphql`
           frontmatter {
             name
             title
-            photoURL
             website
             socials {
               twitter

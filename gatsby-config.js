@@ -4,7 +4,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-resolve-src',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -12,6 +11,7 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
+    'gatsby-plugin-resolve-src',
     'gatsby-transformer-remark',
     'gatsby-plugin-glamor',
   ],
