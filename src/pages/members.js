@@ -10,26 +10,6 @@ const s = {
     width: '100%',
   },
 };
-
-function prepareMembers(data) {
-  let markdownData = Object.assign({}, data.allMarkdownRemark)
-  let members = [];
-
-  // Consolidate graphql response into single, readable members
-  markdownData.edges.map( (member, index) => {
-    // Alias member to "member.node" because it's fucking long
-    member = member.node;
-    let username = hyphenateSpaces(member.frontmatter.name.toLowerCase())
-    data.allFile.edges.forEach( fileNode => {
-      if(username === fileNode.node.name) {
-        let newMember = Object.assign(member, {photoURL: fileNode.node.publicURL})
-        members.push(newMember);
-      }
-    })
-  })
- return members; 
-}
-
 export default ({data}) => {
 
   // Consolidates graphQL data
@@ -50,6 +30,28 @@ export default ({data}) => {
     </div>
   )
 };
+
+function prepareMembers(data) {
+  let markdownData = Object.assign({}, data.allMarkdownRemark)
+  let members = [];
+
+  // Consolidate graphql response into single, readable members
+  markdownData.edges.map( (member, index) => {
+    // Alias member to "member.node" because it's fucking long
+    member = member.node;
+
+    // Consolidate images
+    let username = hyphenateSpaces(member.frontmatter.name.toLowerCase())
+    data.allFile.edges.forEach( fileNode => {
+      if(username === fileNode.node.name) {
+        let newMember = Object.assign(member, {photoURL: fileNode.node.publicURL})
+        members.push(newMember);
+      }
+    })
+  })
+ return members; 
+}
+
 
 
 export const query = graphql`

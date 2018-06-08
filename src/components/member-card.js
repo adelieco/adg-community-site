@@ -14,19 +14,33 @@ export default (props) => {
         alt={props.member.frontmatter.name}/>
       <span style={s.name}>{props.member.frontmatter.name}</span>
       <p style={s.content} dangerouslySetInnerHTML={{ __html: props.member.html}}></p>
-
-      <ul style={s.socialWrapper}>
-        <li>
-          <a href={`https://twitter.com/${props.member.frontmatter.socials.twitter}`}>
-            <img style={s.socialImage} src={LinkedInIcon} />
-          </a>
-          <a href={`https://linkedin.com/in/${props.member.frontmatter.socials.linkedin}`}>
-            <img style={s.socialImage} src={TwitterIcon} />
-          </a>
-        </li>
-      </ul>
+      <SocialSites socialList={props.member.frontmatter.socials[0]}/>
     </div>
+  );
+}
 
+function SocialSites(props) {
+  console.log(props.socialList.twitter);
+  return (
+    <ul style={s.socialWrapper}>
+
+    {props.socialList.twitter !== null && props.socialList.twitter !== '' &&
+      <li style={s.social}>
+        <a href={`https://twitter.com/${props.socialList.twitter}`}>
+          <img style={s.socialImage} src={LinkedInIcon} />
+        </a>
+      </li>
+    }
+
+    {props.socialList.linkedin !== null && props.socialList.linkedin !== '' &&
+      <li style={s.social}>
+        <a href={`https://linkedin.com/in/${props.socialList.linkedin}`}>
+          <img style={s.socialImage} src={TwitterIcon} />
+        </a>
+      </li>
+    }
+
+    </ul>
   );
 }
 
@@ -52,6 +66,9 @@ const s = {
     fontSize: '24px',
     fontWeight: 'bold',
     marginBottom: '10px',
+  },
+  social: {
+    display: 'inline',
   },
   content: {
     marginBottom: '15px',

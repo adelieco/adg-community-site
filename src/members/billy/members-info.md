@@ -3,7 +3,7 @@ name: "Bill Kim"
 title: "student"
 socials: 
 - twitter: ""
-- linkedin: "kidbilly"
+  linkedin: "kidbilly"
 website: ""
 ---
 

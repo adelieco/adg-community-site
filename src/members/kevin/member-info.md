@@ -2,8 +2,8 @@
 name: "Kevin Oh"
 title: "Front-End Engineer @ Nulab | Co-founder @ Adelie"
 socials: 
-- twitter: "aflashyrhetoric"
-- linkedin: "kevinsoh1"
+    - twitter: "aflashyrhetoric"
+      linkedin: "kevinsoh1"
 website: "https://kevinoh.me"
 ---
 

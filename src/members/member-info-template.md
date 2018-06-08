@@ -3,7 +3,7 @@ name: "John Doe"
 title: "Front-End Developer"
 socials: 
 - twitter: "johndoe"
-- linkedin: "johnnydoe"
+  linkedin: "johnnydoe"
 website: "none"
 ---
 

@@ -3,7 +3,7 @@ name: "Luis Rodriguez"
 title: "Web Developer"
 socials: 
 - twitter: "codekommissar"
-- linkedin: "linkedinLuis"
+  linkedin: "linkedinLuis"
 website: "https://websiteLuis.com"
 ---
 
