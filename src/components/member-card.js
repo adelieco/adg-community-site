@@ -13,15 +13,15 @@ export default (props) => {
         src={props.member.photoURL}
         alt={props.member.frontmatter.name}/>
       <span style={s.name}>{props.member.frontmatter.name}</span>
-      <p dangerouslySetInnerHTML={{ __html: props.member.html}}></p>
+      <p style={s.content} dangerouslySetInnerHTML={{ __html: props.member.html}}></p>
 
-      <ul>
+      <ul style={s.socialWrapper}>
         <li>
           <a href={`https://twitter.com/${props.member.frontmatter.socials.twitter}`}>
-            <img src={LinkedInIcon} />
+            <img style={s.socialImage} src={LinkedInIcon} />
           </a>
           <a href={`https://linkedin.com/in/${props.member.frontmatter.socials.linkedin}`}>
-            <img src={TwitterIcon} />
+            <img style={s.socialImage} src={TwitterIcon} />
           </a>
         </li>
       </ul>
@@ -52,5 +52,11 @@ const s = {
     fontSize: '24px',
     fontWeight: 'bold',
     marginBottom: '10px',
+  },
+  content: {
+    marginBottom: '15px',
+  },
+  socialImage: {
+    height: '25px',
   }
 }

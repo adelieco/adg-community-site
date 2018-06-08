@@ -1,7 +1,6 @@
 ---
 name: "Bill Kim"
 title: "student"
-photoURL: "bill-kim.jpg"
 socials: 
 - twitter: ""
 - linkedin: "kidbilly"

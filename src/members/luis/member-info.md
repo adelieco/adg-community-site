@@ -1,7 +1,6 @@
 ---
 name: "Luis Rodriguez"
 title: "Web Developer"
-photoURL: "luis.jpg"
 socials: 
 - twitter: "codekommissar"
 - linkedin: "linkedinLuis"
