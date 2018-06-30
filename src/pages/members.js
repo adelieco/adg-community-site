@@ -7,7 +7,7 @@ const s = {
   container: {
     display: 'flex',
     flexFlow: 'row wrap',
-    width: '100%',
+    width: '80%',
   },
 };
 export default ({data}) => {
@@ -65,6 +65,7 @@ export const query = graphql`
             title
             website
             socials {
+              github
               twitter
               linkedin
             }

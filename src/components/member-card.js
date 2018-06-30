@@ -21,13 +21,13 @@ export default (props) => {
 }
 
 function SocialSites(props) {
-  console.log(props.socialList.twitter);
+  console.log(props.socialList);
   return (
     <ul style={s.socialWrapper}>
 
     {props.socialList.github !== null && props.socialList.github !== '' &&
       <li style={s.social}>
-        <a href={`https://github.com/${props.socialList.github}`}>
+        <a target="_blank" href={`https://github.com/${props.socialList.github}`}>
           <img style={s.socialImage} src={GithubIcon} />
         </a>
       </li>
@@ -35,7 +35,7 @@ function SocialSites(props) {
 
     {props.socialList.twitter !== null && props.socialList.twitter !== '' &&
       <li style={s.social}>
-        <a href={`https://twitter.com/${props.socialList.twitter}`}>
+        <a target="_blank" href={`https://twitter.com/${props.socialList.twitter}`}>
           <img style={s.socialImage} src={LinkedInIcon} />
         </a>
       </li>
@@ -43,7 +43,7 @@ function SocialSites(props) {
 
     {props.socialList.linkedin !== null && props.socialList.linkedin !== '' &&
       <li style={s.social}>
-        <a href={`https://linkedin.com/in/${props.socialList.linkedin}`}>
+        <a target="_blank" href={`https://linkedin.com/in/${props.socialList.linkedin}`}>
           <img style={s.socialImage} src={TwitterIcon} />
         </a>
       </li>
