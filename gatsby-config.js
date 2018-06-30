@@ -14,5 +14,6 @@ module.exports = {
     'gatsby-plugin-resolve-src',
     'gatsby-transformer-remark',
     'gatsby-plugin-glamor',
+    'gatsby-plugin-sass',
   ],
 }

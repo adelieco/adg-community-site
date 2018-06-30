@@ -1,0 +1,32 @@
+// Init: fonts
+// ===================================================
+
+// @font-face Settings
+// ==============================
+// Add OpenSans Font (regular and bold)
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: normal;
+  src:
+    url('/../assets/font/OpenSans-Regular.ttf') format('ttf'),
+}
+
+
+// Defining font family
+// ==============================
+
+$fontDefault: 'Open Sans', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif !default;
+$fontHighlight: 'Gilroy', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif !default;
+
+// mixins for font-family
+// ==============================
+
+@mixin setFontDefault {
+  font-family: $fontDefault;
+}
+
+@mixin setFontHighlight {
+  font-family: $fontHighlight;
+  font-variant-ligatures: no-common-ligatures;
+}

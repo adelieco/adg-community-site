@@ -1,15 +1,9 @@
 import React from "react";
 import MemberCard from 'components/member-card.js';
 import { hyphenateSpaces } from 'utils.js';
+import membersS from 'scss/pages/members.scss';
 
 // Alias styles object to 's' for cleanliness
-const s = {
-  container: {
-    display: 'flex',
-    flexFlow: 'row wrap',
-    width: '80%',
-  },
-};
 export default ({data}) => {
 
   // Consolidates graphQL data
@@ -17,7 +11,7 @@ export default ({data}) => {
 
   return (
     <div>
-      <div style={s.container}>
+      <div className="container">
         {members.map( (member, index) =>
 
           <MemberCard

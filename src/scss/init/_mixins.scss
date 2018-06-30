@@ -1,0 +1,108 @@
+// Utility: Mixins
+// ===================================================
+
+// Font
+// ==============================
+
+@import './_base';
+
+@function rem-calc($size) {
+  $remSize: $size / $baseFontSize;
+  @return #{$remSize}rem;
+}
+
+// Font size (use `rem` unit)
+@mixin fz($size) {
+  $size-rem: rem-calc($size);
+  font-size: #{$size}px;
+  font-size: #{$size-rem};
+}
+
+// Sets horizontal margins to auto
+@mixin horizontal-margin-auto() {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+@mixin horizontal-margin($margin) {
+  margin: {
+    left: $margin;
+    right: $margin;
+  }
+}
+
+@mixin vertical-margin($margin) {
+  margin: {
+    top: $margin;
+    bottom: $margin;
+  }
+}
+
+@mixin horizontal-padding($padding) {
+  padding: {
+    left: $padding;
+    right: $padding;
+  }
+}
+
+@mixin vertical-padding($margin) {
+  padding: {
+    top: $margin;
+    bottom: $margin;
+  }
+}
+
+// Placeholder for input
+// ==============================
+
+@mixin input-placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+// Helpers
+// ==============================
+
+// Clearfix
+@mixin clearfix {
+  &:after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+// SVG
+// Mixin
+@mixin svg-color($color) {
+  .Icon__stroke {
+    stroke: $color;
+  }
+  .Icon__fill {
+    fill: $color;
+  }
+}
+
+@mixin svg-stroke-color($color) {
+  .Icon__stroke {
+    stroke: $color;
+  }
+}
+
+@mixin svg-fill-color($color) {
+  .Icon__fill {
+    fill: $color;
+  }
+}

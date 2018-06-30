@@ -1,0 +1,38 @@
+// init: Breakpoint
+
+// FIXME
+@mixin bp($class) {
+  @if $class == xxs {
+    @media (min-width: 580px) { @content; }
+  }
+
+  @else if $class == xs {
+    @media (min-width: 650px) { @content; }
+  }
+ 
+  @else if $class == sm {
+    @media (min-width: 768px) { @content; }
+  }
+ 
+  @else if $class == md {
+    @media (min-width: 1024px) { @content; }
+  }
+ 
+  @else if $class == lg {
+    @media (min-width: 1280px) { @content; }
+  }
+ 
+  @else if $class == xl {
+    @media (min-width: 1440px) { @content; }
+  }
+
+  @else if $class == xxl {
+    @media (min-width: 1600px) { @content; }
+  }
+  @else if $class == xxxl {
+    @media (min-width: 1800px) { @content; }
+  }
+  @else {
+    @warn "Breakpoint mixin supports: xxs, xs, sm, md, lg";
+  }
+}
