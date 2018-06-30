@@ -1,0 +1,12 @@
+// body.scss
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+.body {
+  // Calculate width of body
+  height: 100%;
+}

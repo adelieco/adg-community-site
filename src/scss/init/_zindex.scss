@@ -1,0 +1,91 @@
+/*
+ * ABOUT Z-INDEXES IN CACOO-FRONT-END
+
+ * For most general components, try to use preset-z() mixin.
+
+ * If component has many z-indexes, define a local $_z map
+  in your component and use component-z() mixin.
+
+ * If a component has many z-indexes and must be built from a
+  certain base level, use offset-z() mixin.
+
+  This is like component-z(), but will help you build
+  components "on top" of a certain preset z-index.
+
+  For example, to build on top of Modal, use
+    @include offset-z(modal, $_z, modal)
+
+ */
+
+$z-presets: (
+  hidden: -10,
+  behide: -1,
+  base: 1,
+  dialog: 100,
+  controls: 200,
+  overlay: 300,
+  sidebar: 400,
+  modal: 500,
+  navbar: 600,
+  notification: 700,
+  error: 800,
+);
+
+// get-preset-z() ... retrieve a preset z-index by name
+@function get-preset-z($preset-name) {
+  @return map-get($z-presets, $preset-name);
+}
+
+// preset-z() ... mixin helper for get-preset-z()
+@mixin preset-z($preset-name) {
+  z-index: get-preset-z($preset-name);
+}
+
+/*
+ * Relative Z-Index Management
+ * NOTE: $_z is a "Map" containing "Lists"
+
+ * Each component that uses component-z() should define
+    its own $_z array and pass it into component-z()
+
+ * Example of a $_z map, from Modal.vue:
+      $_z: (
+        (modal-container),
+        (modal-close),
+        (modal-error-message),
+      );
+ */
+
+// get-component-z() .. retrieve z-index based on relative $_z array
+@function get-component-z($_z, $key1) {
+  $found-index: null;
+  // Iterate through each z-index level
+  @for $z-index-level from 1 through length($_z) {
+    // Check the components in each level to find a match
+    $inner-map: nth($_z, $z-index-level);
+    @if (index($inner-map, $key1) != null) {
+      // Subtract 1 to offset Sass's 1-indexed nature
+      $found-index: $z-index-level - 1;
+    }
+  }
+  @return $found-index;
+}
+
+// component-z() ... mixin helper for get-preset-z()
+@mixin component-z($_z, $key1) {
+  z-index: get-component-z($_z, $key1);
+}
+
+/*
+ * Similar to component-z mixin, but offsets
+ * ..the z-index based on a preset-name.
+
+ * EXAMPLE: To retrieve z-index for modal-container
+  ..at the modal level:
+
+    @include offset-z(modal, $_z, modal-container);
+
+ */
+@mixin offset-z($preset-name, $_z, $key1) {
+  z-index: get-component-z($_z, $key1) + map-get($z-presets, $preset-name);
+}

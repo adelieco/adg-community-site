@@ -1,33 +1,21 @@
 import React from "react";
 import Link from "gatsby-link";
+import headerS from 'scss/header.scss'
 
-const s = {
-  logo: {
-    textDecoration: 'none',
-    fontVariant: 'small-caps',
-  },
-  header: {
-    display: 'flex',
-    flexFlow: 'row nowrap',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    width: '100%',
-  }
-}
 
 const ListLink = props =>
-  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
+  <li className="header__nav-link">
     <Link to={props.to}>
       {props.children}
     </Link>
   </li>
 
 export default ({ children }) =>
-  <header style={s.header}>
-    <Link to="/" style={s.logo}>
-      <h3 style={{ display: `inline` }}>ADELIEid</h3>
+  <header className="header">
+    <Link to="/" className="logo">
+      <h3 className="header__logo">ADELIEid</h3>
     </Link>
-    <ul style={{ listStyle: `none`, float: `right` }}>
+    <ul className="header__nav-items">
       <ListLink to="/">Home</ListLink>
       <ListLink to="/about/">About</ListLink>
       <ListLink to="/members/">Members</ListLink>

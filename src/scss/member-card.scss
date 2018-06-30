@@ -1,0 +1,43 @@
+.memberCard {
+  display: flex;
+  position: relative;
+  flex-flow: column nowrap;
+  flex: 0 0 30%;
+  margin: 10% auto;
+  border: 1px solid gray;
+  padding: 15px;
+  padding-bottom: 45px;
+  border-radius: 3px;
+}
+
+.photo {
+  border-radius: 100%;
+  max-height: 120px;
+  max-width: 120px;
+  margin-bottom: 20px;
+  align-self: center;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.socialWrapper {
+  position: absolute;
+  bottom: 15px;
+}
+
+.social {
+  display: inline;
+  margin-right: 5px;
+}
+
+.content {
+  margin-bottom: 15px;
+}
+
+.socialImage {
+  height: 25px;
+}

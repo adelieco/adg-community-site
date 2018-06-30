@@ -1,0 +1,25 @@
+@import 'init/mixins';
+
+.logo {
+  text-decoration: none;
+  font-variant: small-caps;
+}
+
+.header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  &__logo {
+    display: inline;
+  }
+  &__nav-items {
+    list-style: none;
+    float: right;
+  }
+  &__nav-link {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+}

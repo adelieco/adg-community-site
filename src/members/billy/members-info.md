@@ -4,6 +4,7 @@ title: "student"
 socials: 
 - twitter: ""
   linkedin: "kidbilly"
+  github: ""
 website: ""
 ---
 
