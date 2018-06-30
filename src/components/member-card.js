@@ -3,6 +3,7 @@ import React, {
 } from "react";
 import LinkedInIcon from 'assets/img/linkedin-icon.png';
 import TwitterIcon from 'assets/img/twitter-icon.png';
+import GithubIcon from 'assets/img/github-icon.png';
 
 
 export default (props) => {
@@ -23,6 +24,14 @@ function SocialSites(props) {
   console.log(props.socialList.twitter);
   return (
     <ul style={s.socialWrapper}>
+
+    {props.socialList.github !== null && props.socialList.github !== '' &&
+      <li style={s.social}>
+        <a href={`https://github.com/${props.socialList.github}`}>
+          <img style={s.socialImage} src={GithubIcon} />
+        </a>
+      </li>
+    }
 
     {props.socialList.twitter !== null && props.socialList.twitter !== '' &&
       <li style={s.social}>
@@ -48,11 +57,13 @@ function SocialSites(props) {
 const s = {
   memberCard: {
     display: 'flex',
+    position: 'relative',
     flexFlow: 'column nowrap',
     flex: '0 0 30%',
     margin: '10% auto',
     border: '1px solid gray',
     padding: '15px',
+    paddingBottom: '45px',
     borderRadius: '3px',
   },
   photo: {
@@ -67,8 +78,13 @@ const s = {
     fontWeight: 'bold',
     marginBottom: '10px',
   },
+  socialWrapper: {
+    position: 'absolute',
+    bottom: '15px',
+  },
   social: {
     display: 'inline',
+    marginRight: '5px',
   },
   content: {
     marginBottom: '15px',

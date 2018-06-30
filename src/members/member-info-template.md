@@ -1,9 +1,10 @@
 ---
 name: "John Doe"
 title: "Front-End Developer"
-socials: 
+socials:
 - twitter: "johndoe"
   linkedin: "johnnydoe"
+  github: "johnnydoe"
 website: "none"
 ---
 

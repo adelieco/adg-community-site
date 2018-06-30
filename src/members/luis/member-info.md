@@ -1,9 +1,10 @@
 ---
 name: "Luis Rodriguez"
 title: "Web Developer"
-socials: 
+socials:
 - twitter: "codekommissar"
   linkedin: "linkedinLuis"
+  github: "codekommissar"
 website: "https://websiteLuis.com"
 ---
 
