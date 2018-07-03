@@ -1,8 +1,10 @@
 @import '../init/mixins';
 
-.container {
-  display: flex;
-  flex-flow: row wrap;
-  width: 80%;
-  @include horizontal-margin(auto);
+.Members {
+  &__container {
+    display: flex;
+    flex-flow: row wrap;
+    width: 80%;
+    @include horizontal-margin(auto);
+  }
 }

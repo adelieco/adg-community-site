@@ -8,13 +8,13 @@ import memberCardS from 'scss/member-card.scss';
 
 export default (props) => {
   return (
-    <div className="memberCard">
+    <div className={`MemberCard MemberCard--${props.memberCardVariant}`}>
       <img 
-        className="photo"
+        className="MemberCard__photo"
         src={props.member.photoURL}
         alt={props.member.frontmatter.name}/>
-      <span className="name">{props.member.frontmatter.name}</span>
-      <p className="content" dangerouslySetInnerHTML={{ __html: props.member.html}}></p>
+      <span className="MemberCard__name">{props.member.frontmatter.name}</span>
+      <p className="MemberCard__content" dangerouslySetInnerHTML={{ __html: props.member.html}}></p>
       <SocialSites socialList={props.member.frontmatter.socials[0]}/>
     </div>
   );
@@ -23,28 +23,28 @@ export default (props) => {
 function SocialSites(props) {
   console.log(props.socialList);
   return (
-    <ul className="socialWrapper">
+    <ul className="MemberCard__social-wrapper">
 
     {props.socialList.github !== null && props.socialList.github !== '' &&
-      <li className="social">
+      <li className="MemberCard__social">
         <a target="_blank" href={`https://github.com/${props.socialList.github}`}>
-          <img className="socialImage" src={GithubIcon} />
+          <img className="MemberCard__social-image" src={GithubIcon} />
         </a>
       </li>
     }
 
     {props.socialList.twitter !== null && props.socialList.twitter !== '' &&
-      <li className="social">
+      <li className="MemberCard__social">
         <a target="_blank" href={`https://twitter.com/${props.socialList.twitter}`}>
-          <img className="socialImage" src={LinkedInIcon} />
+          <img className="MemberCard__social-image" src={LinkedInIcon} />
         </a>
       </li>
     }
 
     {props.socialList.linkedin !== null && props.socialList.linkedin !== '' &&
-      <li className="social">
+      <li className="MemberCard__social">
         <a target="_blank" href={`https://linkedin.com/in/${props.socialList.linkedin}`}>
-          <img className="socialImage" src={TwitterIcon} />
+          <img className="MemberCard__social-image" src={TwitterIcon} />
         </a>
       </li>
     }

@@ -1,0 +1,32 @@
+$_toggle-container-height: 25px;
+$_toggle-container-width: 45px;
+$_toggle-ball-padding: 5px;
+$_toggle-ball-height: $_toggle-container-height - $_toggle-ball-padding + 3;
+
+.ToggleBall {
+  &__container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: #cfd1d1;
+    width: $_toggle-container-width;
+    height: $_toggle-container-height;
+    padding: $_toggle-ball-padding;
+    border-radius: 30px;
+  }
+  &__ball {
+    transform: translateX(0);
+    transition: transform .4s;
+    position: absolute;
+    width: $_toggle-ball-height;
+    height: $_toggle-ball-height;
+    border-radius: 100%;
+    left: 5px;
+    background-color: #222222;
+    cursor: pointer;
+    &:hover {
+      background-color: lighten(#222222, 15);
+    }
+  }
+
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import MemberCard from 'components/member-card.js';
+import ToggleBall from 'components/toggle-ball.js';
 import { hyphenateSpaces } from 'utils.js';
 import membersS from 'scss/pages/members.scss';
 
@@ -11,14 +12,16 @@ export default ({data}) => {
 
   return (
     <div>
-      <div className="container">
-        {members.map( (member, index) =>
+      <div className="Members__container">
 
+        <ToggleBall />
+
+        {members.map( (member, index) =>
           <MemberCard
             key={index}
             member={member}
+            memberCardVariant={'roster'}
           />
-
         )}
       </div>
     </div>
