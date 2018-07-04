@@ -27,6 +27,7 @@ export default class ToggleBall extends Component {
     this.setState(prevState => ({
       isToggleOn: !prevState.isToggleOn
     }))
+    this.props.toggle();
   }
 }
 

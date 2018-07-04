@@ -3,18 +3,23 @@
   position: relative;
   flex-flow: column nowrap;
   margin: 10% auto;
-  border: 1px solid gray;
   padding: 15px;
   padding-bottom: 45px;
-  border-radius: 3px;
+  font-family: 'Noto Sans', sans-serif;
 
   // Roster
   &--roster {
-    flex: 0 0 30%;
-
-    .MemberCard & {
-      
+    flex: 0 0 20%;
+    border-radius: 3px;
+    align-items: center;
+    .MemberCard__content {
+      display: none;
     }
+  }
+
+  &--details {
+    flex: 0 0 30%;
+    border: 1px solid gray;
   }
 
   &__photo {
@@ -26,9 +31,14 @@
   }
 
   &__name {
-    font-size: 24px;
-    font-weight: bold;
     margin-bottom: 10px;
+    .MemberCard--roster & {
+      font-size: 20px;
+    }
+    .MemberCard--details & {
+      font-size: 24px;
+      font-weight: bold;
+    }
   }
 
   &__social-wrapper {
@@ -36,7 +46,7 @@
     bottom: 15px;
   }
 
-  &__social {
+  &__social-item {
     display: inline;
     margin-right: 5px;
   }

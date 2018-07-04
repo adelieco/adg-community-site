@@ -10,10 +10,11 @@ export default class MembersPage extends Component {
     super();
     this.data = {data};
     this.state = {
-      viewMode: 'roster',
+      memberCardVariant: 'roster',
       members: this.prepareMembers(data),
     };
-    this.prepareMembers = this.prepareMembers.bind(this);
+    // this.prepareMembers = this.prepareMembers.bind(this);
+    // this.prepareMembers = this.prepareMembers.bind(this);
   }
 
   // Consolidates graphQL data
@@ -23,21 +24,25 @@ export default class MembersPage extends Component {
       <div>
         <div className="Members__container">
 
-          <ToggleBall />
+          <ToggleBall toggle={this.toggleMemberCardVariant}/>
 
           {this.state.members.map( (member, index) =>
             <MemberCard
               key={index}
               member={member}
-              viewMode={this.state.viewMode}
-              memberCardVariant={'roster'}
+              memberCardVariant={this.state.memberCardVariant}
             />
           )}
         </div>
       </div>
     );
   }
-  prepareMembers(data) {
+  toggleMemberCardVariant = () => {
+    this.setState({
+      memberCardVariant: this.state.memberCardVariant === 'roster' ? 'details' : 'roster',
+    })
+  }
+  prepareMembers = (data) => {
     let markdownData = Object.assign({}, data.allMarkdownRemark)
     let members = [];
 

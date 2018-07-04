@@ -9,6 +9,7 @@ $_toggle-ball-height: $_toggle-container-height - $_toggle-ball-padding + 3;
     align-items: center;
     position: relative;
     background-color: #cfd1d1;
+    cursor: pointer;
     width: $_toggle-container-width;
     height: $_toggle-container-height;
     padding: $_toggle-ball-padding;
