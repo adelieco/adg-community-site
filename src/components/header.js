@@ -1,7 +1,8 @@
 import React from "react";
+import Helmet from "react-helmet";
 import Link from "gatsby-link";
 import headerS from 'scss/header.scss'
-
+import AdelieLogo from 'assets/img/adelie-logo.png';
 
 const ListLink = props =>
   <li className="header__nav-link">
@@ -12,8 +13,12 @@ const ListLink = props =>
 
 export default ({ children }) =>
   <header className="header">
-    <Link to="/" className="logo">
-      <h3 className="header__logo">ADELIEid</h3>
+    <Helmet>
+      <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Kalam" rel="stylesheet" />
+    </Helmet>
+    <Link to="/" className="header__logo-container">
+      <img className="header__logo" src={AdelieLogo} />
+      <span>ID</span>
     </Link>
     <ul className="header__nav-items">
       <ListLink to="/">Home</ListLink>

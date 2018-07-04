@@ -11,6 +11,8 @@ $gray3: #333;
 
 $black: #000;
 
-$adelie-blue: #6089ff;
-$adelie-purple: #ff5ff9;
-$adelie-gray: $gray8;
+$a-blue: #6089ff;
+$a-blue-dark: darken($a-blue, 60);
+$a-purple: #ff5ff9;
+$a-purple-dark: darken($a-purple, 50);
+$a-gray: $gray3;
