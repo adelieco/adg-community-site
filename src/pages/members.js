@@ -1,55 +1,63 @@
-import React from "react";
+import React, {Component} from "react";
 import MemberCard from 'components/member-card.js';
 import ToggleBall from 'components/toggle-ball.js';
 import { hyphenateSpaces } from 'utils.js';
 import membersS from 'scss/pages/members.scss';
 
 // Alias styles object to 's' for cleanliness
-export default ({data}) => {
+export default class MembersPage extends Component {
+  constructor({data}) {
+    super();
+    this.data = {data};
+    this.state = {
+      viewMode: 'roster',
+      members: this.prepareMembers(data),
+    };
+    this.prepareMembers = this.prepareMembers.bind(this);
+  }
 
   // Consolidates graphQL data
-  let members = prepareMembers(data);
 
-  return (
-    <div>
-      <div className="Members__container">
+  render() {
+    return (
+      <div>
+        <div className="Members__container">
 
-        <ToggleBall />
+          <ToggleBall />
 
-        {members.map( (member, index) =>
-          <MemberCard
-            key={index}
-            member={member}
-            memberCardVariant={'roster'}
-          />
-        )}
+          {this.state.members.map( (member, index) =>
+            <MemberCard
+              key={index}
+              member={member}
+              viewMode={this.state.viewMode}
+              memberCardVariant={'roster'}
+            />
+          )}
+        </div>
       </div>
-    </div>
-  )
-};
+    );
+  }
+  prepareMembers(data) {
+    let markdownData = Object.assign({}, data.allMarkdownRemark)
+    let members = [];
 
-function prepareMembers(data) {
-  let markdownData = Object.assign({}, data.allMarkdownRemark)
-  let members = [];
+    // Consolidate graphql response into single, readable members
+    markdownData.edges.map( (member, index) => {
+      // Alias member to "member.node" because it's fucking long
+      member = member.node;
 
-  // Consolidate graphql response into single, readable members
-  markdownData.edges.map( (member, index) => {
-    // Alias member to "member.node" because it's fucking long
-    member = member.node;
-
-    // Consolidate images
-    let username = hyphenateSpaces(member.frontmatter.name.toLowerCase())
-    data.allFile.edges.forEach( fileNode => {
-      if(username === fileNode.node.name) {
-        let newMember = Object.assign(member, {photoURL: fileNode.node.publicURL})
-        members.push(newMember);
-      }
+      // Consolidate images
+      let username = hyphenateSpaces(member.frontmatter.name.toLowerCase())
+      data.allFile.edges.forEach( fileNode => {
+        if(username === fileNode.node.name) {
+          let newMember = Object.assign(member, {photoURL: fileNode.node.publicURL})
+          members.push(newMember);
+        }
+      })
     })
-  })
- return members; 
+   return members; 
+  }
 }
-
-
 
 export const query = graphql`
   query MemberQuery {
