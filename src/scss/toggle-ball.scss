@@ -3,12 +3,15 @@ $_toggle-container-width: 45px;
 $_toggle-ball-padding: 5px;
 $_toggle-ball-height: $_toggle-container-height - $_toggle-ball-padding + 3;
 
+@import 'init/init';
+
 .ToggleBall {
   &__container {
     display: flex;
     align-items: center;
     position: relative;
-    background-color: #cfd1d1;
+    // background-color: #cfd1d1;
+    background: linear-gradient(to right, $a-blue, $a-purple);
     cursor: pointer;
     width: $_toggle-container-width;
     height: $_toggle-container-height;
@@ -23,10 +26,10 @@ $_toggle-ball-height: $_toggle-container-height - $_toggle-ball-padding + 3;
     height: $_toggle-ball-height;
     border-radius: 100%;
     left: 5px;
-    background-color: #222222;
+    background-color: $gray3;
     cursor: pointer;
     &:hover {
-      background-color: lighten(#222222, 15);
+      background-color: $white1;
     }
   }
 
