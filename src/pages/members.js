@@ -18,9 +18,16 @@ export default class MembersPage extends Component {
   render() {
     return (
       <div className="Members--page">
-        <ToggleBall 
-          className="Members__toggle"
-          toggle={this.toggleMemberCardVariant}/>
+        <div className="Members__toggle-container">
+          <span className={this.state.memberCardVariant === 'details' ? 'active' : ''}>
+            details view
+          </span>
+          <ToggleBall 
+            toggle={this.toggleMemberCardVariant}/>
+          <span className={this.state.memberCardVariant === 'roster' ? 'active' : ''}>
+            roster view
+          </span>
+        </div>
 
         <div className="Members__container">
           {this.state.members.map( (member, index) =>

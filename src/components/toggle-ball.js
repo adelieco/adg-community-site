@@ -19,7 +19,7 @@ export default class ToggleBall extends Component {
     return (
       <div
         onClick={this.toggleBall}
-        className={`ToggleBall__container ${this.props.className}`}>
+        className="ToggleBall__container">
         <div style={toggleBallS} className="ToggleBall__ball"></div>
       </div>
     );

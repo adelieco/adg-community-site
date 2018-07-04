@@ -10,7 +10,11 @@
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  max-width: 100%;
+  font-family: 'Noto Sans', sans-serif;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 15px;
   &__logo {
     display: inline;
   }
@@ -21,5 +25,9 @@
   &__nav-link {
     display: inline-block;
     margin-right: 1rem;
+    a {
+      text-decoration: none;
+      color: purple;
+    }
   }
 }

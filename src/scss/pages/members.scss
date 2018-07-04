@@ -12,7 +12,17 @@
     width: 80%;
     @include horizontal-margin(auto);
   }
-  &__toggle {
-    justify-self: center;
+  &__toggle-container {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 220px;
+    span {
+      user-select: none;
+    }
+    span.active {
+      color: blue;
+    }
   }
 }
