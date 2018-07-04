@@ -1,6 +1,11 @@
 @import '../init/mixins';
 
 .Members {
+  &--page {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
   &__container {
     display: flex;
     flex-flow: row wrap;
@@ -8,7 +13,6 @@
     @include horizontal-margin(auto);
   }
   &__toggle {
-    width: 100%;
-    align-self: center;
+    justify-self: center;
   }
 }

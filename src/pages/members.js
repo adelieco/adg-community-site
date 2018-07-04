@@ -17,13 +17,12 @@ export default class MembersPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="Members--page">
+        <ToggleBall 
+          className="Members__toggle"
+          toggle={this.toggleMemberCardVariant}/>
+
         <div className="Members__container">
-
-          <ToggleBall 
-            className="Members__toggle"
-            toggle={this.toggleMemberCardVariant}/>
-
           {this.state.members.map( (member, index) =>
             <MemberCard
               key={index}
