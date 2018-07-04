@@ -10,21 +10,19 @@ export default class MembersPage extends Component {
     super();
     this.data = {data};
     this.state = {
-      memberCardVariant: 'roster',
+      memberCardVariant: 'details',
       members: this.prepareMembers(data),
     };
-    // this.prepareMembers = this.prepareMembers.bind(this);
-    // this.prepareMembers = this.prepareMembers.bind(this);
   }
-
-  // Consolidates graphQL data
 
   render() {
     return (
       <div>
         <div className="Members__container">
 
-          <ToggleBall toggle={this.toggleMemberCardVariant}/>
+          <ToggleBall 
+            className="Members__toggle"
+            toggle={this.toggleMemberCardVariant}/>
 
           {this.state.members.map( (member, index) =>
             <MemberCard
@@ -42,6 +40,8 @@ export default class MembersPage extends Component {
       memberCardVariant: this.state.memberCardVariant === 'roster' ? 'details' : 'roster',
     })
   }
+
+  // Consolidates graphQL data
   prepareMembers = (data) => {
     let markdownData = Object.assign({}, data.allMarkdownRemark)
     let members = [];

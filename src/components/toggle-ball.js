@@ -13,8 +13,8 @@ export default class ToggleBall extends Component {
   render() {
 
     let toggleBallS = this.state.isToggleOn ? 
-    { 'transform': 'translateX(21px)' } : 
-    { 'transform': 'translateX(0)' }
+    { 'transform': 'translateX(0)' } : 
+    { 'transform': 'translateX(21px)' }
 
     return (
       <div onClick={this.toggleBall} className="ToggleBall__container">

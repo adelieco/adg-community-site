@@ -17,7 +17,7 @@ $_toggle-ball-height: $_toggle-container-height - $_toggle-ball-padding + 3;
   }
   &__ball {
     transform: translateX(0);
-    transition: transform .4s;
+    transition: transform .2s;
     position: absolute;
     width: $_toggle-ball-height;
     height: $_toggle-ball-height;

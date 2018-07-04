@@ -6,11 +6,11 @@
   padding: 15px;
   padding-bottom: 45px;
   font-family: 'Noto Sans', sans-serif;
+  border: 1px solid transparent;
 
   // Roster
   &--roster {
     flex: 0 0 20%;
-    border-radius: 3px;
     align-items: center;
     .MemberCard__content {
       display: none;
@@ -18,8 +18,14 @@
   }
 
   &--details {
-    flex: 0 0 30%;
+    flex: 0 0 26%;
+    border-radius: 3px;
+    transition: transform .3s, box-shadow .2s;
     border: 1px solid gray;
+    &:hover {
+      box-shadow: 0 2px 3px 2px #979A9C;
+      transform: translateY(-2px);
+    }
   }
 
   &__photo {
@@ -57,5 +63,9 @@
 
   &__social-image {
     height: 25px;
+    transition: transform .2s;
+    &:hover {
+      transform: translateY(-2px);
+    }
   }
 }
