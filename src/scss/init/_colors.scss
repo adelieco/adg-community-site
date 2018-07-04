@@ -3,68 +3,14 @@
 
 // Grayscale Colors
 $white: #fff;
-$white1: #f9f9f9;
 $white2: #f4f4f4;
-$white3: #eeeeee;
-$white4: #e7e7e7;
 
 $gray1: #d8d8d8;
-$gray2: #cfcdcd;
-$gray3: #c9c9c9;
-$gray4: #9b9b9b;
-$gray5: #878688;
-$gray6: #6a6a6a;
-$gray9: #4f4c4b;
-$gray7: #4a4a4a;
-$gray8: #333;
+$gray2: #4a4a4a;
+$gray3: #333;
 
 $black: #000;
 
-// Global Bar Colors
-$gb-dark-gray: $gray6;
-$gb-alert-bg: #25d4c7;
-$gb-checkmark: #3e3e3e;
-
-//Branding Colors
-$cacoo-blue: #4c7ebf;
-
-// Interface Colors
-$light-blue: #2488fd;
-$yellow: #f8e71c;
-$deep-pink: #ff586d;
-$light-green: #7ed321;
-
-$shared-icon: #9b9b9b;
-$page-header: #fafafa;
-
-@mixin dark-theme() {
-  .dark-theme & {
-    @content;
-  }
-}
-
-$darkTheme: (
-  text: $white,
-  navbar-color: $black,
-  sidebar-bg: $gray7,
-  inverted: (
-   text: $gray8,
-  ),
-  hover: (
-    sidebar-bg: $gray1,
-  )
-);
-
-$lightTheme: (
-  text: $gray7,
-  navbar-color: $cacoo-blue,
-  sidebar-bg: $white2,
-  inverted: (
-   text: $white,
-  ),
-  hover: (
-    sidebar-bg: $white4,
-  )
-);
-
-$activeTheme: $lightTheme;
+$adelie-blue: #6089ff;
+$adelie-purple: #ff5ff9;
+$adelie-gray: $gray8;
