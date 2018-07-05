@@ -15,6 +15,8 @@ export default class About extends Component {
       { name: 'Alex Prunier', photo: stock2},
       { name: 'Mason Freiberg', photo: stock3},
     ];
+    // setInterval
+    this.messageIntervalLoop = null;
     this.messageLimit = 20;
     this.state = {
       allMessages: '',
@@ -49,14 +51,18 @@ export default class About extends Component {
     this.fetchMessages();
     let chatbox = document.querySelector('.Chatbox__message-container');
     chatbox.style.height = '420px';
-    setInterval(() =>{
+    this.messageIntervalLoop = setInterval(() =>{
       if(this.state.messageCount < this.messageLimit) {
-        let chatbox = document.querySelector('.Chatbox__message-container');
-        console.log(chatbox);
+        // console.log(chatbox);
         this.setState({ messageCount: this.state.messageCount + 1 });
         smoothScrollTo(chatbox, chatbox.scrollHeight, 400);
       }
     }, randomNum(5000) + 400);
+  }
+
+  // Clear Interval when moving to another page
+  componentWillUnmount() {
+    clearInterval(this.messageIntervalLoop);
   }
 
   messages() {
