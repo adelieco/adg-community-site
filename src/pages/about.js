@@ -77,37 +77,41 @@ export default class About extends Component {
     })
     .then((response) => {
       this.setState({
-        allMessages: response.messages
-                  .map((message) => { 
-                    return {
-                      id: message.client_msg_id,
-                      timestamp: message.ts,
-                      text: message.text.replace(/\<\@U\w+\>,?\s?/g, '')
-                    }
-                  })
-                  .filter((message) => message.text.substring(0,15) !== 'uploaded a file')
-                  .map((message) => {
-                    const randomUser = this.getRandomStockUser();
-                    return (
-                      <div className="Chatbox__container" key={message.id}>
-                        <div>
-                          <img className="Chatbox__photo" src={ randomUser.photo } />
-                        </div>
-
-                        <div className="Chatbox__message-item">
-                          <span className="Chatbox__name">
-                            { randomUser.name }                          
-                            <span className="Chatbox__time">{getTime(message.ts)}</span></span>
-                          <li>{message.text}</li>
-                        </div>
-
-                      </div>
-                    )
-                  })
-                  .reverse()
+        allMessages: this.cleanUpResponse(response.messages)
       });
       this.setState({ messages: this.state.allMessages.slice(0, this.state.messageCount) })
     });
+  }
+
+  cleanUpResponse = (response) => {
+    return response.map((message) => { 
+      return {
+        id: message.client_msg_id,
+        timestamp: message.ts,
+        text: message.text.replace(/\<\@U\w+\>,?\s?/g, '')
+      }
+    })
+    .filter((message) => message.text.substring(0,15) !== 'uploaded a file')
+    .map((message) => {
+      const randomUser = this.getRandomStockUser();
+      return (
+        <div className="Chatbox__container" key={message.id}>
+          <div>
+            <img className="Chatbox__photo" src={ randomUser.photo } />
+          </div>
+
+          <div className="Chatbox__message-item">
+            <span className="Chatbox__name">
+              { randomUser.name }                          
+              <span className="Chatbox__time">{getTime(message.ts)}</span></span>
+            <li>{message.text}</li>
+          </div>
+
+        </div>
+      )
+    })
+    .reverse()
+
   }
 };
 
