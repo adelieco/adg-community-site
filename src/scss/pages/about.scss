@@ -11,14 +11,27 @@ $_chatbox-header-height: 30px;
     justify-content: space-around;
     @include bp(md) {
       flex-flow: row wrap;
+      padding-top: 20px;
     }
     h1 {
-      font-size: 42px;
+      font-size: 24px;
       margin-bottom: 20px;
+      @include bp(sm) {
+        font-size: 30px;
+      }
+      @include bp(md) {
+        font-size: 42px;
+      }
     }
     h4 {
-      font-size: 22px;
+      font-size: 18px;
       font-weight: 500;
+      @include bp(sm) {
+        font-size: 20px;
+      }
+      @include bp(md) {
+        font-size: 22px;
+      }
     }
   }
   &__chatbox {
@@ -35,9 +48,13 @@ $_chatbox-header-height: 30px;
   }
   &__intro,
   &__chatbox {
-    flex: 0 0 100%;
-    max-width: 100%;
+    flex: 0 0 90%;
+    max-width: 90%;
     @include bp(md) {
+      flex: 0 0 80%;
+      max-width: 80%;
+    }
+    @include bp(lg) {
       flex: 0 0 40%;
       max-width: 40%;
     }

@@ -33,7 +33,6 @@ $_chatbox-padding: 12px;
     margin-bottom: 12px;
   }
   &__message-container {
-    min-width: 420px;
     padding: $_chatbox-padding;
     overflow: scroll;
     height: 420px;
