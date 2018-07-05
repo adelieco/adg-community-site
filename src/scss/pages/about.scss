@@ -1,5 +1,8 @@
 @import '../init/init';
 
+$_chatbox-height: 500px;
+$_chatbox-header-height: 30px;
+
 .About {
   &__container {
     display: flex;
@@ -15,12 +18,9 @@
     }
   }
   &__chatbox {
-    max-height: 500px;
-    overflow: scroll;
-  }
-  &__message-container {
-    width: 400px;
-    padding-top: 12px;
+    max-height: $_chatbox-height;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px 2px $gray1;
   }
   &__intro {
     display: flex;
@@ -29,6 +29,11 @@
   }
   &__intro,
   &__chatbox {
-    flex: 0 0 40%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    @include bp(md) {
+      flex: 0 0 40%;
+      max-width: 40%;
+    }
   }
 }

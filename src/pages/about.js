@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import aboutS from 'scss/pages/about.scss';
 import chatboxS from 'scss/components/chatbox.scss';
 import { token } from '../../env';
-import {randomNum, getTime} from 'utils';
+import {randomNum, getTime, smoothScrollTo} from 'utils';
 import stock1 from 'assets/img/stockmember1.png'
 import stock2 from 'assets/img/stockmember2.png'
 import stock3 from 'assets/img/stockmember3.png'
@@ -29,21 +29,32 @@ export default class About extends Component {
             <h1>Adelie Developer's Group</h1>
             <h4>A Slack-based developer group</h4>
           </div>
+
           <div className="About__chatbox">
             <div className="Chatbox__header">
               <h4>#coffeeshop</h4>
             </div>
-            <ul className="About__message-container">{this.messages()}</ul>
+            <div className="Chatbox__message-container">
+              <ul>{this.messages()}</ul>
+            </div>
+
+            <div className="Chatbox__input"></div>
           </div>
+
         </div>
       </div>
     )
   }
   componentDidMount() {
     this.fetchMessages();
+    let chatbox = document.querySelector('.Chatbox__message-container');
+    chatbox.style.height = '420px';
     setInterval(() =>{
       if(this.state.messageCount < this.messageLimit) {
+        let chatbox = document.querySelector('.Chatbox__message-container');
+        console.log(chatbox);
         this.setState({ messageCount: this.state.messageCount + 1 });
+        smoothScrollTo(chatbox, chatbox.scrollHeight, 400);
       }
     }, randomNum(4000) + 2000);
   }
