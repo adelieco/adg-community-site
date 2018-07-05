@@ -1,40 +1,101 @@
 import React, { Component } from "react";
 import aboutS from 'scss/pages/about.scss';
+import chatboxS from 'scss/components/chatbox.scss';
 import { token } from '../../env';
+import {randomNum, getTime} from 'utils';
+import stock1 from 'assets/img/stockmember1.png'
+import stock2 from 'assets/img/stockmember2.png'
+import stock3 from 'assets/img/stockmember3.png'
 
 export default class About extends Component {
   constructor(props) {
     super(props);
+    this.stocks = [
+      { name: 'Sam Hill', photo: stock1},
+      { name: 'Alex Prunier', photo: stock2},
+      { name: 'Mason Freiberg', photo: stock3},
+    ];
+    this.messageLimit = 15;
     this.state = {
-      messages: '',
+      allMessages: '',
+      messageCount: 7,
     }
   }
   render() {
     return (
       <div className="About">
         <div className="About__container">
-          <h1>Adelie Developer's Group</h1>
-          <p>{this.state.messages}</p>
+          <div className="About__intro">
+            <h1>Adelie Developer's Group</h1>
+            <h4>A Slack-based developer group</h4>
+          </div>
+          <div className="About__chatbox">
+            <div className="Chatbox__header">
+              <h4>#coffeeshop</h4>
+            </div>
+            <ul className="About__message-container">{this.messages()}</ul>
+          </div>
         </div>
       </div>
     )
   }
   componentDidMount() {
     this.fetchMessages();
+    setInterval(() =>{
+      if(this.state.messageCount < this.messageLimit) {
+        this.setState({ messageCount: this.state.messageCount + 1 });
+      }
+    }, randomNum(4000) + 2000);
+  }
+
+  messages() {
+    return this.state.allMessages.slice(0, this.state.messageCount);
+  }
+
+  getRandomStockUser = () => {
+    return this.stocks[randomNum(3) - 1];
   }
 
   fetchMessages = () => {
     const channelID = 'C0DDAKWPK';
-    const queryString = `?token=${token}&channel=${channelID}&limit=20`;
+    const queryString = `?token=${token}&channel=${channelID}&limit=${this.messageLimit}`;
 
     fetch(`https://slack.com/api/conversations.history${queryString}`)
     .then((response) => {
       return response.json()
     })
     .then((response) => {
-      // this.setState({ messages: response.messages })
-      this.setState({ messages: response.messages.map((message) => message.text) })
-      console.log(this.state.messages);
+      this.setState({
+        allMessages: response.messages
+                  .map((message) => { 
+                    return {
+                      id: message.client_msg_id,
+                      timestamp: message.ts,
+                      text: message.text.replace(/\<\@U\w+\>,?\s?/g, '')
+                    }
+                  })
+                  .filter((message) => message.text.substring(0,15) !== 'uploaded a file')
+                  .map((message) => {
+                    const randomUser = this.getRandomStockUser();
+                    return (
+                      <div className="Chatbox__container" key={message.id}>
+                        <div>
+                          <img className="Chatbox__photo" src={ randomUser.photo } />
+                        </div>
+
+                        <div className="Chatbox__message-item">
+                          <span className="Chatbox__name">
+                            { randomUser.name }                          
+                            <span className="Chatbox__time">{getTime(message.ts)}</span></span>
+                          <li>{message.text}</li>
+                        </div>
+
+                      </div>
+                    )
+                  })
+                  .reverse()
+      });
+      this.setState({ messages: this.state.allMessages.slice(0, this.state.messageCount) })
     });
   }
 };

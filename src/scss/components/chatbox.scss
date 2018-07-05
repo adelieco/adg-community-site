@@ -1,0 +1,37 @@
+@import '../init/init';
+.Chatbox {
+  &__header {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    min-height: 30px;
+    color: $white;
+    @include adelie-gradient(to right);
+  }  
+  &__photo {
+    height: 40px;
+    width: 40px;
+    border-radius: 3px;
+    margin-right: 10px;
+  }
+  &__name {
+    font-weight: bold;
+  }
+  &__container {
+    display: flex;
+    flex-flow: row nowrap;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  &__message-item {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    @include vertical-padding(2px);
+  }
+  &__time {
+    font-size: 12px;
+    color: $gray2;
+    font-weight: normal;
+  }
+}
