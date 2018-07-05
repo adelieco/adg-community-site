@@ -56,7 +56,7 @@ export default class About extends Component {
         this.setState({ messageCount: this.state.messageCount + 1 });
         smoothScrollTo(chatbox, chatbox.scrollHeight, 400);
       }
-    }, randomNum(4000) + 2000);
+    }, randomNum(5000) + 400);
   }
 
   messages() {
