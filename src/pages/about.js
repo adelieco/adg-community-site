@@ -15,7 +15,7 @@ export default class About extends Component {
       { name: 'Alex Prunier', photo: stock2},
       { name: 'Mason Freiberg', photo: stock3},
     ];
-    this.messageLimit = 15;
+    this.messageLimit = 20;
     this.state = {
       allMessages: '',
       messageCount: 7,
