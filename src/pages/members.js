@@ -41,6 +41,7 @@ export default class MembersPage extends Component {
       </div>
     );
   }
+  
   toggleMemberCardVariant = () => {
     this.setState({
       memberCardVariant: this.state.memberCardVariant === 'roster' ? 'details' : 'roster',
