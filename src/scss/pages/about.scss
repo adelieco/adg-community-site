@@ -7,7 +7,11 @@ $_chatbox-header-height: 30px;
   &__container {
     display: flex;
     align-items: center;
+    flex-flow: column nowrap;
     justify-content: space-around;
+    @include bp(md) {
+      flex-flow: row wrap;
+    }
     h1 {
       font-size: 42px;
       margin-bottom: 20px;
@@ -26,6 +30,8 @@ $_chatbox-header-height: 30px;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    justify-content: center;
+    min-height: 160px;
   }
   &__intro,
   &__chatbox {
