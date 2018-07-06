@@ -8,8 +8,8 @@ import stock2 from 'assets/img/stockmember2.png'
 import stock3 from 'assets/img/stockmember3.png'
 
 export default class About extends Component {
-  constructor(props) {
-    super(props);
+  constructor({data}) {
+    super();
     this.stocks = [
       { name: 'Sam Hill', photo: stock1},
       { name: 'Alex Prunier', photo: stock2},
@@ -121,5 +121,24 @@ export default class About extends Component {
   }
 };
 
-
-
+export const query = graphql`
+  query AboutQuery {
+    allMarkdownRemark {
+      edges {
+        node {
+          html
+          frontmatter {
+            name
+            title
+            website
+            socials {
+              github
+              twitter
+              linkedin
+            }
+          }
+        }
+      }
+    }
+  }
+`
