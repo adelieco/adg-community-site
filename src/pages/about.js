@@ -31,7 +31,6 @@ export default class About extends Component {
             <h1>Adelie Developer's Group</h1>
             <h4>A Slack-based developer group</h4>
           </div>
-
           <div className="About__chatbox">
             <div className="Chatbox__header">
               <h4>#coffeeshop</h4>
@@ -39,10 +38,8 @@ export default class About extends Component {
             <div className="Chatbox__message-container">
               <ul>{this.messages()}</ul>
             </div>
-
             <div className="Chatbox__input"></div>
           </div>
-
         </div>
       </div>
     )
@@ -57,7 +54,7 @@ export default class About extends Component {
         this.setState({ messageCount: this.state.messageCount + 1 });
         smoothScrollTo(chatbox, chatbox.scrollHeight, 400);
       }
-    }, randomNum(5000) + 400);
+    }, randomNum(5000) + 800);
   }
 
   // Clear Interval when moving to another page
