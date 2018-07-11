@@ -43,7 +43,7 @@ export default class About extends Component {
           </div>
         </div>
 
-        <div dangerouslySetInnerHTML={{ __html: this.data.allMarkdownRemark.edges[0].node.html}}></div>
+        <div className="About__main-content" dangerouslySetInnerHTML={{ __html: this.data.allMarkdownRemark.edges[0].node.html}}></div>
       </div>
     )
   }

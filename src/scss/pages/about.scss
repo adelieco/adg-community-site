@@ -9,6 +9,7 @@ $_chatbox-header-height: 30px;
     align-items: center;
     flex-flow: row wrap;
     justify-content: space-around;
+    margin-bottom: 50px;
     @include bp(md) {
       padding-top: 20px;
     }
@@ -74,5 +75,10 @@ $_chatbox-header-height: 30px;
       flex: 0 0 40%;
       max-width: 40%;
     }
+  }
+  &__main-content {
+    width: 62%;
+    @include fz(21);
+    @include horizontal-margin(auto);
   }
 }
