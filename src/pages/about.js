@@ -124,15 +124,9 @@ export const query = graphql`
       edges {
         node {
           html
-          frontmatter {
-            name
-            title
-            website
-            socials {
-              github
-              twitter
-              linkedin
-            }
+          frontmatter(where: {
+            key: "about-md"
+          }) {
           }
         }
       }
