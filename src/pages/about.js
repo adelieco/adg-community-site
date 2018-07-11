@@ -10,6 +10,7 @@ import stock3 from 'assets/img/stockmember3.png'
 export default class About extends Component {
   constructor({data}) {
     super();
+    this.data = data;
     this.stocks = [
       { name: 'Sam Hill', photo: stock1},
       { name: 'Alex Prunier', photo: stock2},
@@ -41,6 +42,8 @@ export default class About extends Component {
             <div className="Chatbox__input"></div>
           </div>
         </div>
+
+        <div dangerouslySetInnerHTML={{ __html: this.data.allMarkdownRemark.edges[0].node.html}}></div>
       </div>
     )
   }
@@ -120,14 +123,16 @@ export default class About extends Component {
 
 export const query = graphql`
   query AboutQuery {
-    allMarkdownRemark {
+    allMarkdownRemark(filter: {
+      frontmatter: {
+        titleKey:{
+          eq:"about-md"
+        }
+      }
+    }) {
       edges {
         node {
           html
-          frontmatter(where: {
-            key: "about-md"
-          }) {
-          }
         }
       }
     }
