@@ -73,7 +73,13 @@ export default class MembersPage extends Component {
 
 export const query = graphql`
   query MemberQuery {
-    allMarkdownRemark {
+    allMarkdownRemark(filter:{
+      frontmatter:{
+        name:{
+          ne: null
+        }
+      }
+    }) {
       edges {
         node {
           html
