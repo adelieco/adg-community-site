@@ -21,9 +21,8 @@ export default ({ children }) =>
       <span>ID</span>
     </Link>
     <ul className="header__nav-items">
-      <ListLink to="/">Home</ListLink>
-      <ListLink to="/about/">About</ListLink>
-      <ListLink to="/members/">Members</ListLink>
+      <ListLink to="/about/">ADG</ListLink>
+      <ListLink to="/members/">Meet The Developers</ListLink>
       <ListLink to="/join/">Join</ListLink>
     </ul>
   </header>

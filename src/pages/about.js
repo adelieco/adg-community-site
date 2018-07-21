@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import aboutS from 'scss/pages/about.scss';
 import chatboxS from 'scss/components/chatbox.scss';
+import CTA from 'components/CTA';
 import { token } from '../../env';
 import {randomNum, getTime, smoothScrollTo} from 'utils';
 import stock1 from 'assets/img/stockmember1.png'
@@ -30,7 +31,7 @@ export default class About extends Component {
         <div className="About__container">
           <div className="About__intro">
             <h1>Adelie Developer's Group</h1>
-            <h4>A Slack-based developer group</h4>
+            <h4>code, memes, and arguments about text editors</h4>
           </div>
           <div className="About__chatbox">
             <div className="Chatbox__header">
@@ -43,7 +44,11 @@ export default class About extends Component {
           </div>
         </div>
 
-        <div className="About__main-content" dangerouslySetInnerHTML={{ __html: this.data.allMarkdownRemark.edges[0].node.html}}></div>
+        <div className="About__main-content-wrapper">
+          <div className="About__main-content" dangerouslySetInnerHTML={{ __html: this.data.allMarkdownRemark.edges[0].node.html}}></div>
+        </div>
+
+        <CTA />
       </div>
     )
   }

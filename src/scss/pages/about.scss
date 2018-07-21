@@ -4,6 +4,7 @@ $_chatbox-height: 500px;
 $_chatbox-header-height: 30px;
 
 .About {
+  padding-bottom: 250px;
   &__container {
     display: flex;
     align-items: center;
@@ -30,6 +31,7 @@ $_chatbox-header-height: 30px;
       }
     }
     h4 {
+      margin-bottom: 0;
       font-size: 18px;
       font-weight: 500;
       @include bp(sm) {
@@ -76,9 +78,20 @@ $_chatbox-header-height: 30px;
       max-width: 40%;
     }
   }
+  &__main-content-wrapper {
+    width: 100%;
+    background-color: $gray4;
+    @include vertical-padding(30px);
+  }
   &__main-content {
-    width: 62%;
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+    color: $white;
     @include fz(21);
     @include horizontal-margin(auto);
+    p {
+      max-width: 400px;
+    }
   }
 }

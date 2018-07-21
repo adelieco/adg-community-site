@@ -1,0 +1,59 @@
+@import 'init/init';
+
+$_cta-border-radius: 50%;
+$_cta-border-radius-animation-duration: .2s;
+
+.CTA {
+  &__container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    padding: 40px;
+    text-align: center;
+  }
+
+  &__text {
+    display: block;
+    margin-bottom: 35px;
+    @include fz(30);
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: border-top-left-radius $_cta-border-radius-animation-duration ease, border-bottom-right-radius $_cta-border-radius-animation-duration ease;
+    @include adelie-gradient(to right);
+
+    &:hover {
+      border-bottom-right-radius: $_cta-border-radius;
+      border-top-left-radius: $_cta-border-radius;
+      .CTA__link {
+        border-bottom-right-radius: $_cta-border-radius;
+        border-top-left-radius: $_cta-border-radius;
+        background: $gray3;
+      }
+    }
+  }
+  &__link {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $gray4;
+    color: white;
+    height: 50px;
+    width: 70px;
+    padding: 8px;
+    font-style: italic;
+    font-weight: bold;
+    user-select: none;
+    transition: border-top-left-radius $_cta-border-radius-animation-duration ease, border-bottom-right-radius $_cta-border-radius-animation-duration ease;
+    @include fz(22);
+  }
+}
+

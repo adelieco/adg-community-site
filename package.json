@@ -25,6 +25,7 @@
   "devDependencies": {
     "gatsby-plugin-glamor": "^1.6.13",
     "gatsby-plugin-sass": "^1.0.26",
+    "gatsby-remark-emojis": "^0.2.3",
     "gatsby-source-filesystem": "^1.5.36",
     "gatsby-transformer-remark": "^1.7.41",
     "prettier": "^1.12.0"
