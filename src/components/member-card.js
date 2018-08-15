@@ -7,9 +7,6 @@ import memberCardS from 'scss/member-card.scss';
 export default class ToggleBall extends Component {
   constructor(props) {
     super(props);
-    // this.props = props;
-    // console.log(props);
-    // this.SocialSites = this.SocialSites.bind(this);
   }
   render() {
     return (

@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import MemberCard from 'components/member-card.js';
 import ToggleBall from 'components/toggle-ball.js';
+import Hero from 'components/hero.js';
 import { hyphenateSpaces } from 'utils.js';
 import membersS from 'scss/pages/members.scss';
 
@@ -18,14 +19,11 @@ export default class MembersPage extends Component {
   render() {
     return (
       <div className="Members--page">
-        <div className="Hero__container">
-          <h1 className="Hero__heading">
-            Meet The Developers
-          </h1>
-          <span className="Hero__subheading">
-            A global group of best pals
-          </span>
-        </div>
+        <Hero 
+          heading="Meet The Developers"
+          subheading="A group of global pals"
+        />
+
         <div className="Members__toggle-container">
           <span className={this.state.memberCardVariant === 'details' ? 'active' : ''}>
             details view
