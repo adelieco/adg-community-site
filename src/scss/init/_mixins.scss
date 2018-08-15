@@ -13,6 +13,7 @@
 
 @mixin adelie-gradient($direction) {
   background: linear-gradient($direction, $a-blue, $a-purple);
+  color: white;
 }
 
 // Font size (use `rem` unit)

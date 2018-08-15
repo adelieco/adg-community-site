@@ -18,6 +18,14 @@ export default class MembersPage extends Component {
   render() {
     return (
       <div className="Members--page">
+        <div className="Hero__container">
+          <h1 className="Hero__heading">
+            Meet The Developers
+          </h1>
+          <span className="Hero__subheading">
+            A global group of best pals
+          </span>
+        </div>
         <div className="Members__toggle-container">
           <span className={this.state.memberCardVariant === 'details' ? 'active' : ''}>
             details view
