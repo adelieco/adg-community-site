@@ -1,0 +1,97 @@
+@import '../init/init';
+
+$_chatbox-height: 500px;
+$_chatbox-header-height: 30px;
+
+.About {
+  padding-bottom: 250px;
+  &__container {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin-bottom: 50px;
+    @include bp(md) {
+      padding-top: 20px;
+    }
+    @include bp(md) {
+      padding-right: 20px;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      @include bp(sm) {
+        font-size: 28;
+      }
+      @include bp(md) {
+        font-size: 36px;
+      }
+      @include bp(md) {
+        font-size: 42px;
+      }
+    }
+    h4 {
+      margin-bottom: 0;
+      font-size: 18px;
+      font-weight: 500;
+      @include bp(sm) {
+        font-size: 20px;
+      }
+      @include bp(md) {
+        font-size: 22px;
+      }
+    }
+  }
+  &__chatbox {
+    max-height: $_chatbox-height;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px 2px $gray1;
+  }
+  &__intro {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    min-height: 110px;
+    @include bp(lg) {
+      min-height: 160px;
+    }
+  }
+  &__intro,
+  &__chatbox {
+    flex: 0 0 90%;
+    max-width: 90%;
+    @include bp(xs) {
+      flex: 0 0 80%;
+      max-width: 80%;
+    }
+    @include bp(sm) {
+      flex: 0 0 70%;
+      max-width: 70%;
+    }
+    @include bp(md) {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+    @include bp(lg) {
+      flex: 0 0 40%;
+      max-width: 40%;
+    }
+  }
+  &__main-content-wrapper {
+    width: 100%;
+    background-color: $gray4;
+    @include vertical-padding(30px);
+  }
+  &__main-content {
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+    color: $white;
+    @include fz(21);
+    @include horizontal-margin(auto);
+    p {
+      max-width: 400px;
+    }
+  }
+}

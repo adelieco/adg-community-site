@@ -2318,6 +2318,10 @@ date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
 
+dayjs@^1.7.2:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.7.2.tgz#31b65d962a59a7e5bb2a20f01002a4b8d6d6f62c"
+
 death@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/death/-/death-1.1.0.tgz#01aa9c401edd92750514470b8266390c66c67318"
@@ -3387,6 +3391,10 @@ gatsby-react-router-scroll@^1.0.17:
     babel-runtime "^6.26.0"
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
+
+gatsby-remark-emojis@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-emojis/-/gatsby-remark-emojis-0.2.3.tgz#a4e310f9532dc5425a35b9c9ec28545bfa5f94da"
 
 gatsby-source-filesystem@^1.5.36:
   version "1.5.36"

@@ -11,6 +11,11 @@
   @return #{$remSize}rem;
 }
 
+@mixin adelie-gradient($direction) {
+  background: linear-gradient($direction, $a-blue, $a-purple);
+  color: white;
+}
+
 // Font size (use `rem` unit)
 @mixin fz($size) {
   $size-rem: rem-calc($size);
@@ -106,3 +111,5 @@
     fill: $color;
   }
 }
+
+

@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import MemberCard from 'components/member-card.js';
 import ToggleBall from 'components/toggle-ball.js';
+import Hero from 'components/hero.js';
 import { hyphenateSpaces } from 'utils.js';
 import membersS from 'scss/pages/members.scss';
 
@@ -18,6 +19,11 @@ export default class MembersPage extends Component {
   render() {
     return (
       <div className="Members--page">
+        <Hero 
+          heading="Meet The Developers"
+          subheading="A group of global pals"
+        />
+
         <div className="Members__toggle-container">
           <span className={this.state.memberCardVariant === 'details' ? 'active' : ''}>
             details view
@@ -41,6 +47,7 @@ export default class MembersPage extends Component {
       </div>
     );
   }
+  
   toggleMemberCardVariant = () => {
     this.setState({
       memberCardVariant: this.state.memberCardVariant === 'roster' ? 'details' : 'roster',
@@ -72,7 +79,13 @@ export default class MembersPage extends Component {
 
 export const query = graphql`
   query MemberQuery {
-    allMarkdownRemark {
+    allMarkdownRemark(filter:{
+      frontmatter:{
+        name:{
+          ne: null
+        }
+      }
+    }) {
       edges {
         node {
           html

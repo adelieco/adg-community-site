@@ -1,0 +1,23 @@
+@import '../init/init';
+
+
+.Hero {
+  &__container {
+    height: 400px;
+    width: 100%;
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+    @include adelie-gradient(to top right);
+  } 
+  &__heading {
+    font-weight: bold;
+    @include fz(40);
+  }
+  &__subheading {
+    @include fz(28);
+  }
+}
